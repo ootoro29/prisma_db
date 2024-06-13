@@ -5,7 +5,7 @@ type User = {
   name: string;
 };
 
-export async function GET() {
+export const GET = async() => {
   try {
      const { rows } = await pool.query<User>('SELECT * FROM users');
      return NextResponse.json(rows);
