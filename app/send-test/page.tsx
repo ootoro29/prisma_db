@@ -26,9 +26,11 @@ export default function Page() {
             
             await fetch(`/api/user/testmail`,{method:"GET"})
             .then(async(res) => {
+                console.log(res);
                 const user = await res.json();
                 setUser({id:user.id,name:user.name,image:user.image});
-            });
+            })
+            
             
         }
         dataFetch();
