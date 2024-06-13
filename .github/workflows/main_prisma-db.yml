@@ -27,12 +27,6 @@ jobs:
           npm run build --if-present
           npm run test --if-present
 
-      - name: Generate Prisma Client
-        run: npx prisma generate
-
-      - name: Run Prisma Migrations
-        run: npx prisma migrate deploy
-
       - name: Copy artifact for deployment job
         run: |
           mkdir deploy
