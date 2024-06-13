@@ -7,8 +7,8 @@ type User = {
 
 export const GET = async(req:NextRequest) => {
   try {
-    //const { rows } = await pool.query<User>('SELECT * FROM users');
-    return NextResponse.json({"message":"Hello"},{status:200});
+    const rows = await pool.query<User>('SELECT * FROM users'); 
+    return NextResponse.json(rows.rows,{status:200});
   } catch (error) {
     throw error
   }
