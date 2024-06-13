@@ -27,15 +27,8 @@ jobs:
           npm run build --if-present
           npm run test --if-present
 
-      - name: Copy artifact for deployment job
-        run: |
-          mkdir deploy
-          cp -r ./.next/standalone/. ./deploy
-          cp -r ./public ./deploy
-          cp -r ./.next/static/. ./deploy/.next/static
-
       - name: Zip artifact for deployment
-        run: zip release.zip ./deploy -r
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -64,9 +57,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_BB6D9DB9E9084C6DBE522F822594D271 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_1D155DD7D0E446B780AD5B377E2B7E9D }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3C77A9776A75466FADBB867C4BFAC92D }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_00F51F45260449029449A9D294DD8725 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_48ECBACBA1544613ABB3D5CD853EDB6D }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_46F870E353904C70AFD111AB8783C846 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -74,5 +67,5 @@ jobs:
         with:
           app-name: 'prisma-app-ootoro'
           slot-name: 'Production'
-          package: ./deploy
+          package: .
           
