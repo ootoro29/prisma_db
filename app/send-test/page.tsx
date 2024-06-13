@@ -1,5 +1,6 @@
 "use client"
 import { useRouter } from "next/navigation";
+import { prisma } from "@/auth";
 import { FormEvent, useEffect, useState } from "react";
 type User = {
     id:string;
@@ -31,6 +32,7 @@ export default function Page() {
         <div>
             <p>send test</p>
             <div>
+                
                 {user?.name}
             </div>
         </div>
