@@ -9,7 +9,7 @@ export const prisma = new PrismaClient();
 export const NAuth = NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [Google],
-  secret: 'secret',
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     authorized({ request, auth }) {
       try {
