@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { prisma } from "@/auth";
 import { FormEvent, useEffect, useState } from "react";
+import pool from "@/db"; 
 type User = {
     id:string;
     name:string;
@@ -19,11 +20,16 @@ export default function Page() {
     const [user,setUser] = useState<User|null>(null);
     useEffect(() => {
         const dataFetch = async() => {
+            //const rows = await pool.query<User[]>('SELECT * FROM users');
+            //const data = await JSON.stringify(rows.rows);
+            //console.log(data); 
+            
             await fetch(`/api/user/testmail`,{method:"GET"})
             .then(async(res) => {
                 const user = await res.json();
                 setUser({id:user.id,name:user.name,image:user.image});
             });
+            
         }
         dataFetch();
     },[])
