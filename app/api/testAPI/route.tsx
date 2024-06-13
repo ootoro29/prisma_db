@@ -8,8 +8,8 @@ type User = {
 export const GET = async(req:NextRequest) => {
   try {
     const connect = await pool.connect();
-    const rows = await connect.query<User>('SELECT * FROM users'); 
-    return new NextResponse(JSON.stringify(rows.rows),{status:200});
+    //const rows = await connect.query<User>('SELECT * FROM users'); 
+    return new NextResponse("hello",{status:200});
   } catch (error) {
     throw error
   }
