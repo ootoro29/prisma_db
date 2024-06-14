@@ -1,12 +1,13 @@
 import{Pool} from 'pg';
 
-
+/*
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
+*/
 
-/*
-export const client = new Client({
+
+export const pool = new Pool({
   user: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASSWORD || 'postgres',
   host: process.env.DB_HOST || 'localhost',
@@ -16,4 +17,3 @@ export const client = new Client({
     ? { rejectUnauthorized: false } : false,
 });
 
-*/
