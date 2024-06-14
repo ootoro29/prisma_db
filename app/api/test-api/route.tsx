@@ -7,7 +7,7 @@ type User = {
 
 export const GET = async(req:NextRequest) => {
   try {
-    await client.connect(err => {
+    await client.connect((err) => {
       if(err) throw err;
     });
     const rows = await client.query<User>('SELECT * FROM users'); 
