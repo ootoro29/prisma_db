@@ -42,6 +42,7 @@ export default function Page() {
             <div>
                 
                 {user?.name}
+                <p>{prisma ? "true" : "false"}</p>
             </div>
         </div>
     );
