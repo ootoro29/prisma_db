@@ -21,15 +21,15 @@ jobs:
         with:
           node-version: '20.x'
 
-      - name: npm install
-        run: npm install
-
       - name: prisma generate
         run: |
           rm -rf node_modules/.prisma
           npm run postinstall
         env:
           DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
+
+      - name: npm install
+        run: npm install
 
       - name: npm build, and test
         run: |
