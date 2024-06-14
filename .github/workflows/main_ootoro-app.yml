@@ -30,6 +30,7 @@ jobs:
           rm -rf node_modules/.prisma
           npm run postinstall
           npx prisma generate
+          npx prisma migrate deploy
         env:
           DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
 
