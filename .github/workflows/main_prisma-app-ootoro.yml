@@ -28,6 +28,7 @@ jobs:
         run: |
           rm -rf node_modules/.prisma
           npm run postinstall
+          npx prisma generate
         env:
           DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
 
