@@ -1,7 +1,7 @@
 import{Pool} from 'pg';
+import { Client } from 'pg';
 
-const pool = new Pool({
+export const client = new Client({
   connectionString: process.env.DATABASE_URL,
 });
 
-export default pool;
