@@ -88,7 +88,4 @@ jobs:
           app-name: 'ootoro-app'
           slot-name: 'Production'
           package: ./deploy
-        env:
-          POST_BUILD_COMMAND: 'npm install @prisma/client'
-        
           
