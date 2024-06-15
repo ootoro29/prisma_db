@@ -1,4 +1,4 @@
-import { prisma } from "@/app/auth"
+import { Article } from "@prisma/client";
 import { zAirticle } from "@/app/type";
 import { NextRequest, NextResponse } from "next/server"
 export const GET = async(req:NextRequest) => {
