@@ -1,15 +1,22 @@
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
+import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
+import { pool } from "./db";
+import { PrismaClient as PC } from "@prisma/client";
+import { PrismaClient } from "@/prisma/generated/client";
 
-const globalForPrisma = global as unknown as { prisma: PrismaClient | undefined };
+//const globalForPrisma = global as unknown as { prisma: PrismaClient | undefined };
+//export const prisma = globalForPrisma.prisma || new PrismaClient();
 
-export const prisma = globalForPrisma.prisma || new PrismaClient();
+const adapter = new PrismaPg(pool)
+export const prisma = new PrismaClient({ adapter })
+
+export const prismaAuth = new PC()
 
 
 export const NAuth = NextAuth({
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(prismaAuth),
   providers: [Google({
     clientId:process.env.AUTH_GOOGLE_ID,
     clientSecret:process.env.AUTH_GOOGLE_SECRET
