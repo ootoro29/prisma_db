@@ -41,9 +41,12 @@ jobs:
       - name: Copy artifact for deployment job
         run: |
           mkdir deploy
+          cd deploy
+          mkdir prisma
+          cd ..
           cp -r ./.next/standalone/. ./deploy
           cp -r ./public ./deploy
-          cp -r ./prisma ./deploy
+          cp -r ./prisma ./deploy/prisma
           cp -r ./.next/static/. ./deploy/.next/static
 
       - name: Zip artifact for deployment
