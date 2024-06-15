@@ -4,7 +4,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { pool } from "./db";
 import { PrismaClient as PC } from "@prisma/client";
-import { PrismaClient } from "@/prisma/generated/client";
+//import { PrismaClient } from "@/prisma/generated/client";
 
 //const globalForPrisma = global as unknown as { prisma: PrismaClient | undefined };
 //export const prisma = globalForPrisma.prisma || new PrismaClient();
