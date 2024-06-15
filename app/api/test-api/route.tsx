@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import {pool} from "@/db";
+import {pool} from "@/app/db";
 type User = {
   id: number;
   name: string;

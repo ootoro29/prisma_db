@@ -1,5 +1,5 @@
-import { prisma } from "@/auth"
-import { zAirticle } from "@/type";
+import { prisma } from "@/app/auth"
+import { zAirticle } from "@/app/type";
 import { NextRequest, NextResponse } from "next/server"
 export const GET = async(req:NextRequest) => {
     try{

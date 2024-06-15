@@ -1,6 +1,6 @@
 "use client"
 import { useRouter } from "next/navigation";
-import { prisma } from "@/auth";
+import { prisma } from "@/app/auth";
 import { FormEvent, useEffect, useState } from "react";
 
 type User = {

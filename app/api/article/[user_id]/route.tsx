@@ -1,4 +1,4 @@
-import { prisma } from "@/auth"
+import { prisma } from "@/app/auth"
 import { NextRequest, NextResponse } from "next/server"
 export const GET = async(req:NextRequest,{params}:{params:{user_id:string}}) => {
     const user_id = parseInt(params.user_id);
