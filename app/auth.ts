@@ -9,7 +9,6 @@ export const prisma = globalForPrisma.prisma || new PrismaClient({log: ["query"]
 
 
 export const NAuth = NextAuth({
-  adapter: PrismaAdapter(prisma),
   providers: [Google({
     clientId:process.env.AUTH_GOOGLE_ID,
     clientSecret:process.env.AUTH_GOOGLE_SECRET
