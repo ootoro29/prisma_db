@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/7a4df5b4-32fc-415e-abcd-d0f7c72efd1c/resourceGroups/japan-ootoro-app/providers/Microsoft.Web/sites/prisma-auth-app",
+    "appService.deploySubpath": "."
+}
